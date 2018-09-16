@@ -7,8 +7,8 @@
 //
 
 import UIKit
-class FirstViewController: UIViewController {
-
+class FirstViewController: UIViewController, LoginViewControllerDelegate {
+    
     @IBOutlet weak var nameField: UITextField!
     
     
@@ -33,7 +33,7 @@ class FirstViewController: UIViewController {
         }else if segue.identifier == "go to login"
         {
             let loginViewController = segue.destination as! LoginViewController
-            // 
+            loginViewController.delegate = self
         }
     }
 
@@ -42,4 +42,20 @@ class FirstViewController: UIViewController {
             performSegue(withIdentifier: "go to login", sender: sender)
         }
     }
+    
+    
+    func loginViewController(_ vc: LoginViewController, loginOKWithUsername username: String, andPass pass: String) {
+        print("This is FVC, User: \(username) Logged in!")
+        nameField.text = username
+    }
+    
+    func loginViewControllerDidCancel(_ vc: LoginViewController) {
+        print("This is FVC, User canceled login :/")
+    }
+    
+    func loginViewController(_ vc: LoginViewController, didFailWithUsername username: String, andPass pass: String) {
+        print("This is FVC, User \(username) and pass: \(pass) Failed!")
+    }
+    
+
 }
