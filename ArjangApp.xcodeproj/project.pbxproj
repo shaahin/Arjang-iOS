@@ -12,6 +12,8 @@
 		EB746690214E9E0A00751F7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74668F214E9E0A00751F7D /* LoginViewController.swift */; };
 		EBAB609F21319D3200DBCD08 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBAB609E21319D3200DBCD08 /* NetworkExtension.framework */; };
 		EBDC6AB82151380D003DABE1 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDC6AB72151380D003DABE1 /* CalculatorViewController.swift */; };
+		EBDC6ABB21515565003DABE1 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDC6ABA21515565003DABE1 /* NewsTableViewController.swift */; };
+		EBDC6ABD2151567F003DABE1 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDC6ABC2151567F003DABE1 /* Models.swift */; };
 		EBF0634B21285880003243C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF0634A21285880003243C2 /* AppDelegate.swift */; };
 		EBF0635021285880003243C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBF0634E21285880003243C2 /* Main.storyboard */; };
 		EBF0635221285883003243C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF0635121285883003243C2 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		EBAB609E21319D3200DBCD08 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		EBAB60A021319D3200DBCD08 /* ArjangApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ArjangApp.entitlements; sourceTree = "<group>"; };
 		EBDC6AB72151380D003DABE1 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		EBDC6ABA21515565003DABE1 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
+		EBDC6ABC2151567F003DABE1 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		EBF0634721285880003243C2 /* ArjangApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArjangApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBF0634A21285880003243C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBF0634F21285880003243C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +72,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EBDC6AB921515552003DABE1 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				EBDC6ABA21515565003DABE1 /* NewsTableViewController.swift */,
+				EBDC6ABC2151567F003DABE1 /* Models.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		EBF0633E21285880003243C2 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +101,7 @@
 		EBF0634921285880003243C2 /* ArjangApp */ = {
 			isa = PBXGroup;
 			children = (
+				EBDC6AB921515552003DABE1 /* News */,
 				EBAB60A021319D3200DBCD08 /* ArjangApp.entitlements */,
 				EBF0635D21287CED003243C2 /* WelcomeViewController.swift */,
 				EBF0634A21285880003243C2 /* AppDelegate.swift */,
@@ -191,6 +205,8 @@
 				EBF0634B21285880003243C2 /* AppDelegate.swift in Sources */,
 				EBF529DE2136E59900857104 /* NamesViewController.swift in Sources */,
 				EBF0635E21287CED003243C2 /* WelcomeViewController.swift in Sources */,
+				EBDC6ABB21515565003DABE1 /* NewsTableViewController.swift in Sources */,
+				EBDC6ABD2151567F003DABE1 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
