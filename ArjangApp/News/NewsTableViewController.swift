@@ -18,6 +18,9 @@ class NewsTableViewController: UITableViewController {
         let urlString = "https://newsapi.org/v2/everything?q=iran&from=2018-08-23&sortBy=publishedAt&apiKey=6e6c8b1a9e8c44f8af6fcb110567d0b1"
         
         let dataTask = URLSession.shared.dataTask(with: URL(string: urlString)!) { (data, response, error) in
+            
+            // REMOVE LOADING
+            
             // after executing the dataTask
             if let error = error {
                 print("ERROR: \(error)")
@@ -28,16 +31,26 @@ class NewsTableViewController: UITableViewController {
                     {
                         // I have the result! Hooray!
                         self.newsResult = result
-                        let alert = UIAlertController(title: "CIW", message: "Content Loaded! Please Refresh", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
+//                        let alert = UIAlertController(title: "CIW", message: "Content Loaded! Please Refresh", preferredStyle: .alert)
+//                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+//                        self.present(alert, animated: true, completion: nil)
+
+                        /*
+                         // CREATE QUEUE
+                         let queue = DispatchQueue(label: "CIW")
+                        queue.async {
+                            sleep(10)
+                        }*/
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
                         
                     }
                 }
                 
             }
         }
-        
+        // SHOW LOADING
         dataTask.resume()
         
 
