@@ -15,7 +15,7 @@ class NewsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let urlString = "https://newsapi.org/v2/everything?q=iran&from=2018-08-18&sortBy=publishedAt&apiKey=6e6c8b1a9e8c44f8af6fcb110567d0b1"
+        let urlString = "https://newsapi.org/v2/everything?q=iran&from=2018-08-23&sortBy=publishedAt&apiKey=6e6c8b1a9e8c44f8af6fcb110567d0b1"
         
         let dataTask = URLSession.shared.dataTask(with: URL(string: urlString)!) { (data, response, error) in
             // after executing the dataTask
@@ -63,12 +63,15 @@ class NewsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "news cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "news cell", for: indexPath) as! NewsTableViewCell
 
         // Configure the cell...
         let article = newsResult!.articles![indexPath.row]
-        cell.textLabel?.text = article.title
-        cell.detailTextLabel?.text = article.source?.name
+//        cell.textLabel?.text = article.title
+        cell.newsTitleLabel.text = article.title
+        cell.newsShortDescriptionLable.text = article.description
+        cell.newsDateLabel.text = article.publishedAt
+//        cell.detailTextLabel?.text = article.source?.name
         return cell
     }
 
