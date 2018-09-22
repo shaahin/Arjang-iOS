@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class NewsTableViewController: UITableViewController {
 
@@ -17,7 +18,13 @@ class NewsTableViewController: UITableViewController {
         super.viewDidLoad()
         let urlString = "https://newsapi.org/v2/everything?q=iran&from=2018-08-23&sortBy=publishedAt&apiKey=6e6c8b1a9e8c44f8af6fcb110567d0b1"
         
-        let dataTask = URLSession.shared.dataTask(with: URL(string: urlString)!) { (data, response, error) in
+        var request = URLRequest(url: URL(string: urlString)!)
+        request.httpMethod = "GET"
+        //request.addValue("6e6c8b1a9e8c44f8af6fcb110567d0b1", forHTTPHeaderField: "apiKey")
+        request.addValue("Bearer 6e6c8b1a9e8c44f8af6fcb110567d0b1", forHTTPHeaderField: "Authorization")
+        
+        
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             // REMOVE LOADING
             
@@ -50,7 +57,16 @@ class NewsTableViewController: UITableViewController {
                 
             }
         }
+        
+        // SAMPLE REQUEST
+        
+        
+        
+        /*
+        URLSession.shared.dataTask(with: <#T##URLRequest#>, completionHandler: <#T##(Data?, URLResponse?, Error?) -> Void#>)
+ */
         // SHOW LOADING
+        
         dataTask.resume()
         
 
@@ -84,6 +100,13 @@ class NewsTableViewController: UITableViewController {
         cell.newsTitleLabel.text = article.title
         cell.newsShortDescriptionLable.text = article.description
         cell.newsDateLabel.text = article.publishedAt
+        
+        if let urlToImage = article.urlToImage {
+            let url = URL(string: urlToImage)
+            cell.newsImage.kf.setImage(with: url)
+        }
+        
+        
 //        cell.detailTextLabel?.text = article.source?.name
         return cell
     }
